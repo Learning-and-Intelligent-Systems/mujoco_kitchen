@@ -209,6 +209,8 @@ def primitive_and_params_to_primitive_action(primitive_name, params):
         if name == primitive_name:
             action[i] = 1.0
             idxs = primitive_name_to_action_idx[name]
+            if isinstance(idxs, int):
+                idxs = [idxs]
             for param_i, idx in enumerate(idxs):
                 action[num_primitives + idx] = params[param_i]
             break
