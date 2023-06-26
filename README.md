@@ -1,4 +1,4 @@
-# Kitchen Env
+# mujoco_kitchen
 
 Cloned and Edited from this repository: https://github.com/google-research/relay-policy-learning
 
@@ -17,4 +17,4 @@ pip install -e .
 ```
 python test.py
 ```
-# mujoco_kitchen
+
