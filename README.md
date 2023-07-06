@@ -12,9 +12,10 @@ After installing mujoco_py, export the repo's PYTHONPATH:
 export PYTHONPATH={your-path-to-mujoco_kitchen}/adept_envs
 ```
 
-Finally, be sure to use virtual environments in your code (Python==3.8), and pip install (After including in the PYTHONPATH)
+Finally, be sure to use virtual environments in your code (Python==3.8) then pip install the requirements and repo (After including in the PYTHONPATH)
 
 ```
+pip install -r requirements.txt
 pip install -e .
 ```
 
