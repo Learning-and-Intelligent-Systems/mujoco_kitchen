@@ -4,7 +4,7 @@ Cloned and Edited from this repository: https://github.com/google-research/relay
 
 ## Getting Started (User)
 
-Be sure to install mujoco_py properly. For further instructions see: https://github.com/openai/mujoco-py
+Install mujoco_py. Mujoco_py is assumed to be installed for this setup. For further instructions see: https://github.com/openai/mujoco-py
 
 After installing mujoco_py, export the repo's PYTHONPATH:
 
