@@ -4,16 +4,22 @@ Cloned and Edited from this repository: https://github.com/google-research/relay
 
 ## Getting Started (User)
 
+Be sure to install mujoco_py properly. For further instructions see: https://github.com/openai/mujoco-py
+
+After installing mujoco_py, export the repo's PYTHONPATH:
+
 ```
-export PYTHONPATH=/home/wmcclinton/Documents/GitHub/relay-policy-learning/adept_envs
+export PYTHONPATH={your-path-to-mujoco_kitchen}/adept_envs
 ```
 
-1. Use the environments in your code, and pip install (After including in the PYTHONPATH)
+Finally, be sure to use virtual environments in your code (Python==3.8), and pip install (After including in the PYTHONPATH)
+
 ```
 pip install -e .
 ```
 
-2. Run the test script
+Now you can run the test script
+
 ```
 python test.py
 ```
