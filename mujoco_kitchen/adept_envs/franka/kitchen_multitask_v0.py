@@ -230,12 +230,16 @@ class KitchenV0(robot_env.RobotEnv):
             obs_lower = -obs_upper
             self.observation_space = spaces.Box(obs_lower, obs_upper, dtype=np.float32)
 
-        if self.control_mode in ["joint_position", "joint_velocity", "torque"]:
+        if self.control_mode in ["joint_velocity", "torque"]:
             self.act_mid = np.zeros(self.N_DOF_ROBOT)
             self.act_amp = 2.0 * np.ones(self.N_DOF_ROBOT)
 
             act_lower = -1 * np.ones((self.N_DOF_ROBOT,))
             act_upper = 1 * np.ones((self.N_DOF_ROBOT,))
+            self.action_space = spaces.Box(act_lower, act_upper)
+        elif self.control_mode == "joint_position":
+            act_lower = -10 * np.ones((self.N_DOF_ROBOT,))
+            act_upper = 10 * np.ones((self.N_DOF_ROBOT,))
             self.action_space = spaces.Box(act_lower, act_upper)
         elif self.control_mode == "end_effector":
             # 3 for xyz, 3 for rpy, 1 for gripper
@@ -611,7 +615,8 @@ class KitchenV0(robot_env.RobotEnv):
                 "end_effector",
                 "vices",
             ]:
-                a = np.clip(a, -1.0, 1.0)
+                if self.control_mode != "joint_position":
+                    a = np.clip(a, -1.0, 1.0)
                 if self.control_mode == "end_effector":
                     rotation = self.quat_to_rpy(self.get_ee_quat()) - np.array(a[3:6])
                     target_pos = a[:3] + self.get_ee_pose()

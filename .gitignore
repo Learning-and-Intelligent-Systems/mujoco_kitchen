@@ -1,0 +1,17 @@
+__pycache__
+*.pyc
+.DS_Store
+*.egg-info
+*.pkl
+*~
+*.python-version
+*.csv
+*.zip
+*.so
+build
+dist
+pylint_recursive.py
+.coverage
+
+# Jetbrains IDEs
+.idea/
